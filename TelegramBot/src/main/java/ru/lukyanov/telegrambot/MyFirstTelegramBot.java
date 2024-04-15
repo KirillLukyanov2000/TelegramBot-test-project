@@ -7,7 +7,7 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 public class MyFirstTelegramBot extends MultiSessionTelegramBot {
     public static final String NAME = "kirs2000_bot"; // bot name
-    public static final String TOKEN = "7080101107:AAFfLQe4DkFiZUAzSp0SZ2ejNkj2w20bKtk"; //bot token
+    public static final String TOKEN = "xxx"; //bot token
 
     public MyFirstTelegramBot() {
         super(NAME, TOKEN);
