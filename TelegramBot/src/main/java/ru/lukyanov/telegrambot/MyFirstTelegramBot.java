@@ -1,16 +1,13 @@
-package com.javarush.telegrambot;
+package ru.lukyanov.telegrambot;
 
 import org.telegram.telegrambots.meta.TelegramBotsApi;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
-import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 public class MyFirstTelegramBot extends MultiSessionTelegramBot {
-    public static final String NAME = "bot-name"; // TODO: добавьте имя бота в кавычках
-    public static final String TOKEN = "bot-token"; //TODO: добавьте токен бота в кавычках
+    public static final String NAME = "kirs2000_bot"; // bot name
+    public static final String TOKEN = "7080101107:AAFfLQe4DkFiZUAzSp0SZ2ejNkj2w20bKtk"; //bot token
 
     public MyFirstTelegramBot() {
         super(NAME, TOKEN);
@@ -18,7 +15,9 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
 
     @Override
     public void onUpdateEventReceived(Update updateEvent) {
-        // TODO: основной функционал бота будем писать здесь
+        sendTextMessageAsync("Hello from IDEA!");
+        sendTextMessageAsync("Some *bold text* added");
+        sendTextMessageAsync("Some _cursive text_ added");
 
     }
 
