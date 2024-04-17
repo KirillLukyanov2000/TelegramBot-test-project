@@ -40,7 +40,22 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
         }
         if (getCallbackQueryButtonKey().equals("step_4_btn")) {
             addUserGlory(30);
-            sendTextMessageAsync(STEP_5_TEXT);
+            sendTextMessageAsync(STEP_5_TEXT, Map.of("Надеть и включить GoPro!", "step_5_btn"));
+        }
+        if (getCallbackQueryButtonKey().equals("step_5_btn")) {
+            addUserGlory(40);
+            sendTextMessageAsync(STEP_6_TEXT, Map.of("Бегать по крышам! +40 славы", "step_6_btn", "Нападать на других котов! +40 славы", "step_6_btn", "Нападать на собак из засады! +40 славы", "step_6_btn"));
+        }
+        if (getCallbackQueryButtonKey().equals("step_6_btn")) {
+            addUserGlory(40);
+            sendTextMessageAsync(STEP_7_TEXT, Map.of("Взлом пароля", "step_7_btn"));
+        }
+        if (getCallbackQueryButtonKey().equals("step_7_btn")) {
+            addUserGlory(50);
+            sendTextMessageAsync(STEP_8_TEXT, Map.of("Выйти во двор", "step_8_btn"));
+        }
+        if (getCallbackQueryButtonKey().equals("step_8_btn")) {
+            sendTextMessageAsync(FINAL_TEXT);
         }
     }
 

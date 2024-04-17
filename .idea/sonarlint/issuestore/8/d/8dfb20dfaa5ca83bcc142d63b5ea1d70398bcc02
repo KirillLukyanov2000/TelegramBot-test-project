@@ -1,0 +1,25 @@
+
+`	java:S112y"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112ƒ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+\	java:S112¸"FDefine and throw a dedicated exception instead of using a generic one.(çîÐŠ
+\	java:S112Á"FDefine and throw a dedicated exception instead of using a generic one.(‹áÎÃ
+a	java:S112Ö"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+\	java:S112ñ"FDefine and throw a dedicated exception instead of using a generic one.(çîÐŠ
+`
+java:S1192>"JDefine a constant instead of duplicating this literal "cmnd1_cat" 3 times.(ÆÏ´ê
+`
+java:S1192>"JDefine a constant instead of duplicating this literal "cmnd2_dog" 3 times.(ÆÏ´ê
+<
+java:S5164"!Call "remove()" on "updateEvent".(ªÄ¦÷øÿÿÿÿ
+M
+java:S11727"2Remove this unused method parameter "updateEvent".(“Þ’’ýÿÿÿÿ
+t
+java:S2142x"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ý¾
+u
+java:S2142‚"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ý¾
+K
+java:S2864¥"4Iterate over the "entrySet" instead of the "keySet".(ÉÚøÅ
+q
+java:S1128"[Remove this unused import 'org.telegram.telegrambots.meta.exceptions.TelegramApiException'.(ò¹ôÖ
+Z
+java:S1128"DRemove this unused import 'java.util.concurrent.ExecutionException'.(¡£ØÍ
