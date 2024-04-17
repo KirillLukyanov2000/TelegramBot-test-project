@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class MyFirstTelegramBot extends MultiSessionTelegramBot {
     public static final String NAME = "kirs2000_bot"; // bot name
-    public static final String TOKEN = "xxx"; //bot token
+    public static final String TOKEN = ""; //bot token
 
     public MyFirstTelegramBot() {
         super(NAME, TOKEN);
@@ -20,9 +20,11 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
 
         if (getMessageText().equals("/start")) {
             sendTextMessageAsync("Hello from IDEA! " + "Some *bold text* added and " + "Some _cursive text_ added");
+            sendTextMessageAsync("Your fav pet?",
+                    Map.of("Cat", "cmnd1_cat", "Dog", "cmnd2_dog"));
         }
         if (getMessageText().equals("/bye")) {
-            sendTextMessageAsync("*Bye-Bye*");
+            sendTextMessageAsync("*Bye-Bye*, _Asta la vista, baby!_");
         }
         if (getMessageText().equals("How are you?")) {
             sendTextMessageAsync("Super");
@@ -33,20 +35,24 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
         if (getMessageText().contains("picture") || getMessageText().contains("Picture")) {
             sendPhotoMessageAsync("final_pic");
         }
-        if (getMessageText().contains("cat") || getMessageText().contains("Cat")) {
-            sendTextMessageAsync("Choose number of the Cat picture: ",
-                    Map.of("Cat 1", "command1", "Cat 2", "command2"));
+        if (getMessageText().contains("cat")
+                || getMessageText().contains("Cat")
+                || getMessageText().contains("Dog")
+                || getMessageText().contains("dog")) {
+            sendTextMessageAsync("Choose Cat or Dog picture: ",
+                    Map.of("Cat", "cmnd1_cat", "Dog", "cmnd2_dog"));
         }
-        if (getCallbackQueryButtonKey().equals("command1")) {
-            sendPhotoMessageAsync("step_1_pic");
+        if (getCallbackQueryButtonKey().equals("cmnd1_cat")) {
+            sendPhotoMessageAsync("step_4_pic");
         }
-        if (getCallbackQueryButtonKey().equals("command2")) {
-            sendPhotoMessageAsync("step_2_pic");
+        if (getCallbackQueryButtonKey().equals("cmnd2_dog")) {
+            sendPhotoMessageAsync("step_6_pic");
         }
         if (getMessageText().equals("smile")) {
             var message = getLastSentMessage();
             editTextMessageAsync(message.getMessageId(), message.getText() + " :))");
         }
+
     }
 
     public static void main(String[] args) throws TelegramApiException {
