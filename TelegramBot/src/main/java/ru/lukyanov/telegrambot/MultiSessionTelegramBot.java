@@ -53,7 +53,43 @@ public class MultiSessionTelegramBot extends TelegramLongPollingBot {
     }
 
     public void onUpdateEventReceived(Update updateEvent) {
-        //do nothing
+
+        /* first test version of the method, see @Overrode version */
+
+        if (getMessageText().equals("/start")) {
+            sendTextMessageAsync("Hello from IDEA! " + "Some *bold text* added and " + "Some _cursive text_ added");
+            sendTextMessageAsync("Your fav pet?",
+                    Map.of("Cat", "cmnd1_cat", "Dog", "cmnd2_dog"));
+        }
+        if (getMessageText().equals("/bye")) {
+            sendTextMessageAsync("*Bye-Bye*, _Asta la vista, baby!_");
+        }
+        if (getMessageText().equals("How are you?")) {
+            sendTextMessageAsync("Super");
+        }
+        if (getMessageText().contains("weather") || getMessageText().contains("Weather")) {
+            sendTextMessageAsync("I'm not a weather forecast chat-bot");
+        }
+        if (getMessageText().contains("picture") || getMessageText().contains("Picture")) {
+            sendPhotoMessageAsync("final_pic");
+        }
+        if (getMessageText().contains("cat")
+                || getMessageText().contains("Cat")
+                || getMessageText().contains("Dog")
+                || getMessageText().contains("dog")) {
+            sendTextMessageAsync("Choose Cat or Dog picture: ",
+                    Map.of("Cat", "cmnd1_cat", "Dog", "cmnd2_dog"));
+        }
+        if (getCallbackQueryButtonKey().equals("cmnd1_cat")) {
+            sendPhotoMessageAsync("step_4_pic");
+        }
+        if (getCallbackQueryButtonKey().equals("cmnd2_dog")) {
+            sendPhotoMessageAsync("step_6_pic");
+        }
+        if (getMessageText().equals("smile")) {
+            var message = getLastSentMessage();
+            editTextMessageAsync(message.getMessageId(), message.getText() + " :))");
+        }
     }
 
     public Long getCurrentChatId() {
@@ -106,7 +142,7 @@ public class MultiSessionTelegramBot extends TelegramLongPollingBot {
         executeAsync(photo);
     }
 
-    public SendMessage createMessage( String text) {
+    public SendMessage createMessage(String text) {
         SendMessage message = new SendMessage();
         message.setText(new String(text.getBytes(), StandardCharsets.UTF_8));
         message.setParseMode("markdown");
@@ -115,7 +151,7 @@ public class MultiSessionTelegramBot extends TelegramLongPollingBot {
         return message;
     }
 
-    public SendMessage createMessage( String text, Map<String, String> buttons) {
+    public SendMessage createMessage(String text, Map<String, String> buttons) {
         SendMessage message = createMessage(text);
         if (buttons != null && !buttons.isEmpty())
             attachButtons(message, buttons);
@@ -180,10 +216,11 @@ public class MultiSessionTelegramBot extends TelegramLongPollingBot {
     }
 
     public void setUserGlory(int glories) {
-        gloryStorage.put( getCurrentChatId(), glories);
+        gloryStorage.put(getCurrentChatId(), glories);
     }
+
     public int getUserGlory() {
-        return gloryStorage.getOrDefault( getCurrentChatId(), 0);
+        return gloryStorage.getOrDefault(getCurrentChatId(), 0);
     }
 
     public void addUserGlory(int glories) {

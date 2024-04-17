@@ -7,6 +7,8 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import java.util.Map;
 
+import static ru.lukyanov.telegrambot.TelegramBotContent.*;
+
 public class MyFirstTelegramBot extends MultiSessionTelegramBot {
     public static final String NAME = "kirs2000_bot"; // bot name
     public static final String TOKEN = ""; //bot token
@@ -17,42 +19,29 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
 
     @Override
     public void onUpdateEventReceived(Update updateEvent) {
+        //test version:
+        //super.onUpdateEventReceived(updateEvent);
 
         if (getMessageText().equals("/start")) {
-            sendTextMessageAsync("Hello from IDEA! " + "Some *bold text* added and " + "Some _cursive text_ added");
-            sendTextMessageAsync("Your fav pet?",
-                    Map.of("Cat", "cmnd1_cat", "Dog", "cmnd2_dog"));
+            setUserGlory(0);
+            sendTextMessageAsync(STEP_1_TEXT, Map.of("Взлом холодильника", "step_1_btn"));
         }
-        if (getMessageText().equals("/bye")) {
-            sendTextMessageAsync("*Bye-Bye*, _Asta la vista, baby!_");
+        if (getCallbackQueryButtonKey().equals("step_1_btn")) {
+            addUserGlory(20);
+            sendTextMessageAsync(STEP_2_TEXT, Map.of("Взять сосиску! +20 славы", "step_2_btn", "Взять рыбку! +20 славы", "step_2_btn", "Сбросить банку с огурцами! +20 славы", "step_2_btn"));
         }
-        if (getMessageText().equals("How are you?")) {
-            sendTextMessageAsync("Super");
+        if (getCallbackQueryButtonKey().equals("step_2_btn")) {
+            addUserGlory(20);
+            sendTextMessageAsync(STEP_3_TEXT, Map.of("Взлом робота пылесоса", "step_3_btn"));
         }
-        if (getMessageText().contains("weather") || getMessageText().contains("Weather")) {
-            sendTextMessageAsync("I'm not a weather forecast chat-bot");
+        if (getCallbackQueryButtonKey().equals("step_3_btn")) {
+            addUserGlory(30);
+            sendTextMessageAsync(STEP_4_TEXT, Map.of("Отправить робопылесос за едой! +30 славы", "step_4_btn", "Проехаться на робопылесосе! +30 славы", "step_4_btn", "Убегать от робопылесоса! +30 славы", "step_4_btn"));
         }
-        if (getMessageText().contains("picture") || getMessageText().contains("Picture")) {
-            sendPhotoMessageAsync("final_pic");
+        if (getCallbackQueryButtonKey().equals("step_4_btn")) {
+            addUserGlory(30);
+            sendTextMessageAsync(STEP_5_TEXT);
         }
-        if (getMessageText().contains("cat")
-                || getMessageText().contains("Cat")
-                || getMessageText().contains("Dog")
-                || getMessageText().contains("dog")) {
-            sendTextMessageAsync("Choose Cat or Dog picture: ",
-                    Map.of("Cat", "cmnd1_cat", "Dog", "cmnd2_dog"));
-        }
-        if (getCallbackQueryButtonKey().equals("cmnd1_cat")) {
-            sendPhotoMessageAsync("step_4_pic");
-        }
-        if (getCallbackQueryButtonKey().equals("cmnd2_dog")) {
-            sendPhotoMessageAsync("step_6_pic");
-        }
-        if (getMessageText().equals("smile")) {
-            var message = getLastSentMessage();
-            editTextMessageAsync(message.getMessageId(), message.getText() + " :))");
-        }
-
     }
 
     public static void main(String[] args) throws TelegramApiException {
