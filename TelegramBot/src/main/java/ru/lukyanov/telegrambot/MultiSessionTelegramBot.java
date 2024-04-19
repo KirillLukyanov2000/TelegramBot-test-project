@@ -9,7 +9,6 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,16 +19,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
+
+import static ru.lukyanov.telegrambot.Buttons.STEP_1_BUTTON;
+import static ru.lukyanov.telegrambot.Buttons.STEP_2_BUTTON;
 
 public class MultiSessionTelegramBot extends TelegramLongPollingBot {
-    private String name;
-    private String token;
+    private final String name;
+    private final String token;
 
-    private ThreadLocal<Update> updateEvent = new ThreadLocal<>();
-    private HashMap<Long, Integer> gloryStorage = new HashMap<>();
+    private final ThreadLocal<Update> updateEvent = new ThreadLocal<>();
+    private final HashMap<Long, Integer> gloryStorage = new HashMap<>();
 
-    private List<Message> sendMessages = new ArrayList<>();
+    private final List<Message> sendMessages = new ArrayList<>();
 
     public MultiSessionTelegramBot(String name, String token) {
         this.name = name;
@@ -59,7 +60,7 @@ public class MultiSessionTelegramBot extends TelegramLongPollingBot {
         if (getMessageText().equals("/start")) {
             sendTextMessageAsync("Hello from IDEA! " + "Some *bold text* added and " + "Some _cursive text_ added");
             sendTextMessageAsync("Your fav pet?",
-                    Map.of("Cat", "cmnd1_cat", "Dog", "cmnd2_dog"));
+                    Map.of("Cat", STEP_1_BUTTON, "Dog", STEP_2_BUTTON));
         }
         if (getMessageText().equals("/bye")) {
             sendTextMessageAsync("*Bye-Bye*, _Asta la vista, baby!_");
@@ -78,12 +79,12 @@ public class MultiSessionTelegramBot extends TelegramLongPollingBot {
                 || getMessageText().contains("Dog")
                 || getMessageText().contains("dog")) {
             sendTextMessageAsync("Choose Cat or Dog picture: ",
-                    Map.of("Cat", "cmnd1_cat", "Dog", "cmnd2_dog"));
+                    Map.of("Cat", STEP_1_BUTTON, "Dog", STEP_2_BUTTON));
         }
-        if (getCallbackQueryButtonKey().equals("cmnd1_cat")) {
+        if (getCallbackQueryButtonKey().equals(STEP_1_BUTTON)) {
             sendPhotoMessageAsync("step_4_pic");
         }
-        if (getCallbackQueryButtonKey().equals("cmnd2_dog")) {
+        if (getCallbackQueryButtonKey().equals(STEP_2_BUTTON)) {
             sendPhotoMessageAsync("step_6_pic");
         }
         if (getMessageText().equals("smile")) {

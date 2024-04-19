@@ -80,26 +80,7 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
         if ((getMessageText().contains("мяу") || getMessageText().contains("Мяу")) && getUserGlory() == 230) {
             var message = getLastSentMessage();
             editTextMessageAsync(message.getMessageId(), message.getText() +
-                    """
-                                                        
-                            ...........77777777777.......77777777777
-                            ........77777777777777....77777777777777
-                            ......7777777777777777..7777777777777777
-                            ....77777777777777777777777777777777777
-                            ....7777777777777777777777777777777777
-                            ....7777777777777777777777777777777777
-                            ....777777777777777777777777777777777
-                            .....77777777777777777777777777777777
-                            ......777777777777777777777777777777
-                            ........777777777777777777777777777
-                            ..........7777777777777777777777777
-                            ...........77777777777777777777777
-                            ..............7777777777777777777
-                            .................7777777777777777
-                            .....................7777777777
-                            ........................777777
-                            ..........................777
-                            ...........................7""");
+                    HEARTS_TEXT);
             sendImageMessageAsync("C:\\Users\\tayga\\Downloads\\Template TelegramBot Marathon 1.1\\TelegramBot\\src\\main\\resources\\images\\lovely_cat.jpg");
         }
         if ((getMessageText().contains("мяу") || getMessageText().contains("Мяу")) && getUserGlory() < 230) {

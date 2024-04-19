@@ -1,25 +1,17 @@
 
-`	java:S112y"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
-a	java:S112ƒ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
-\	java:S112¸"FDefine and throw a dedicated exception instead of using a generic one.(çîÐŠ
-\	java:S112Á"FDefine and throw a dedicated exception instead of using a generic one.(‹áÎÃ
-a	java:S112Ö"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
-\	java:S112ñ"FDefine and throw a dedicated exception instead of using a generic one.(çîÐŠ
-`
-java:S1192>"JDefine a constant instead of duplicating this literal "cmnd2_dog" 3 times.(ÆÏ´ê
-`
-java:S1192>"JDefine a constant instead of duplicating this literal "cmnd1_cat" 3 times.(ÆÏ´ê
-<
-java:S5164"!Call "remove()" on "updateEvent".(ªÄ¦÷øÿÿÿÿ
-M
-java:S11727"2Remove this unused method parameter "updateEvent".(“Þ’’ýÿÿÿÿ
-t
-java:S2142x"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ý¾
-u
-java:S2142‚"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ý¾
-K
-java:S2864¥"4Iterate over the "entrySet" instead of the "keySet".(ÉÚøÅ
+†	java:S112z"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚ÒéüÿÿÿÿJ$c464963c-10cf-422d-a10d-11c980a866e2
+‡	java:S112„"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚ÒéüÿÿÿÿJ$578082cb-2163-4239-965e-d2f48f8b951a
+‚	java:S112¹"FDefine and throw a dedicated exception instead of using a generic one.(çîÐŠJ$d286aa61-49ab-4ade-852f-b10b7ad0120b
+‚	java:S112Â"FDefine and throw a dedicated exception instead of using a generic one.(‹áÎÃJ$9c35d9f3-9ee3-47bf-ada7-66e0ab2a9be3
+‡	java:S112×"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚ÒéüÿÿÿÿJ$5e4ddbef-1f79-4ee6-92bf-3cb14a8290a0
+‚	java:S112ò"FDefine and throw a dedicated exception instead of using a generic one.(çîÐŠJ$781a56ac-1270-4581-a419-b60e77bd3dfb
+]
+java:S5164"!Call "remove()" on "updateEvent".(Ë‹Ÿ‚J$b9c053df-45ac-4673-be71-1c7d1c262f42
+s
+java:S11728"2Remove this unused method parameter "updateEvent".(“Þ’’ýÿÿÿÿJ$38ccb57c-a1a0-4dfd-b9dc-aae998bab0d7
+š
+java:S2142y"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ý¾J$30215f57-962a-4e50-8b64-fdee421a3b2b
+›
+java:S2142ƒ"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ý¾J$75637e0c-aa6a-4d72-8659-67ff9afad508
 q
-java:S1128"[Remove this unused import 'org.telegram.telegrambots.meta.exceptions.TelegramApiException'.(ò¹ôÖ
-Z
-java:S1128"DRemove this unused import 'java.util.concurrent.ExecutionException'.(¡£ØÍ
+java:S2864¦"4Iterate over the "entrySet" instead of the "keySet".(ÉÚøÅJ$7d55498e-2689-4ba6-abf6-2a7fd786221e
